@@ -13,4 +13,5 @@ echo "You have entered $port"
 read -p "Enter the username you wish to connect as : [press enter to use $duser] :"  user
 user=${user:-$duser}
 echo "Attempting to ssh to $ip on port $port with as username $user"
+ssh -p $port $user@$ip
 exit 0
