@@ -3,15 +3,11 @@
 echo "**************************"
 echo "       SSH to VNC"
 echo "**************************"
-dip=192.168.1.35
-dport=5140
+dport=22
 duser=$(whoami)
 read -p "Enter remote IP address : [press enter for $dip] : "  ip
-ip=${ip:-$dip}
-echo "You have entered $ip"
 read -p "Enter remote PORT to connect to : [press enter for port $dport] :" port
 port=${port:-$dport}
-echo "You have entered $port"
 read -p "Enter the username you wish to connect as : [press enter to use $duser] :"  user
 user=${user:-$duser}
 echo "Attempting to ssh to $ip on port $port with as username $user"
