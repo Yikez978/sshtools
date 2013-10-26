@@ -5,7 +5,7 @@ echo "       SSH to VNC"
 echo "**************************"
 dport=22
 duser=$(whoami)
-read -p "Enter remote IP address : [press enter for $dip] : "  ip
+read -p "Enter remote IP address : "  ip
 read -p "Enter remote PORT to connect to : [press enter for port $dport] :" port
 port=${port:-$dport}
 read -p "Enter the username you wish to connect as : [press enter to use $duser] :"  user
