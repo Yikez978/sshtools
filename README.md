@@ -39,6 +39,12 @@ It will also ask you for a Proxy port. This is the port that your proxy will be 
 on said port and this will be where the tunnel is setup to your private box. Make sure to set this up either before or after running
 this script to ensure your traffic can be tunnelled.
 
+####Note :
+
+Will default to `vvv` Verbosity for SSH. This is the max setting for most verbose output.
+
+Why? Becuause its fun to see those pipes keep filling and draining...
+
 
 sshToVnc
 ========
