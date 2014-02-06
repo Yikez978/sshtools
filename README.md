@@ -14,6 +14,22 @@ I'll be adding some simple bash scripts to this repository to accomplish the abo
 
 _Note : all scripts assume Mac OSX 10.7x environment. The specific programs used can be easily swapped out and you should be able to run in any other POSIX environment (give or take some caveats)._
 
+generate keys
+==============
+
+simple one liner (hey, I'm lazy and forgetful!!!!) that uses the `ssh-keygen` command to automagically generate a 4096 byte RSA key. It will take you through the normal prompts for location and password. Afterwards you'll have some keys that will need copying...onto the next step!!!!
+
+copy keys
+==========
+
+This script requires `ssh-copy-id` command. So if you don't have it crack open your trusty package manager and install it.
+
+If you use `brew` you can simply `brew install ssh-copy-id` and your done.
+
+Once executed you'll be asked for the `IP` and `SSH PORT` of the remote system. If successfull it will prompt you for password on remote system, after authenticating it will copy your key into your `~/.ssh/` directory as you normally would.
+
+Now you can turn off password off on the remote computer's `ssh_config` and start enjoying passwordless entry:)
+
 coffee shop proxy
 =================
 
