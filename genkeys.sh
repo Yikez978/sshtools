@@ -1,1 +1,1 @@
-ssh-keygen -t rsa -b 4096
+ssh-keygen -b 4096 -t rsa -P ""
