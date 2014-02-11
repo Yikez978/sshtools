@@ -6,9 +6,12 @@ Just a little fun with SSH and BASH!!!!
 I have the need to automate some common ssh tasks such as :
 
 
-    generating client keys and adding those keys to a server
-    ssh to vnc
-    vnc to another computer connected to my ssh server
+    * generating client keys and adding those keys to a server
+    * ssh to vnc
+    * vnc to another computer connected to my ssh server
+    * bind local machine ports to remote machine ports
+    * setup SSH Tunnel to remote and proxy all traffic to avoid coffeeshop snoops
+    
 
 I'll be adding some simple bash scripts to this repository to accomplish the above. The first script I've completed is the ssh to vnc.
 
