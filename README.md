@@ -22,9 +22,9 @@ simple one liner (hey, I'm lazy and forgetful!!!!) that uses the `ssh-keygen` co
 copy keys
 ==========
 
-This script requires `ssh-copy-id` command. So if you don't have it crack open your trusty package manager and install it.
+This will make a temp file with your public key and set correct permissions then copy it to the remote machine.
 
-If you use `brew` you can simply `brew install ssh-copy-id` and your done.
+_Make sure that `password auth` is `ON` in the remote machine's SSH configuration for this to work_
 
 Once executed you'll be asked for the `IP` and `SSH PORT` of the remote system. If successfull it will prompt you for password on remote system, after authenticating it will copy your key into your `~/.ssh/` directory as you normally would.
 
@@ -60,6 +60,17 @@ this script to ensure your traffic can be tunnelled.
 Will default to `vvv` Verbosity for SSH. This is the max setting for most verbose output.
 
 Why? Becuause its fun to see those pipes keep filling and draining...
+
+bindAddress
+===========
+
+Use this script if you need to bind local ports to remote ports _i.e._ `local_port:HOST:remote_port`
+
+This is the same method used below when tunneling vnc through ssh. The local port `5905` is bound to remote port `5900` on the loopback so you can simply VNC like `127.0.0.1:5905`. Since your local port `5905` is bound to remote port `5900` any traffic you send or receive on local `5905` will be forwarded to/from the remote `5900` port. So in the case of VNC you will receive the `remote frame buffer` by pointing your VNC viewer to `127.0.0.1:5905`
+
+###usage
+
+I use this as a quick way to connect to my `couchdb` instance running on my remote machine. So I can just bind local port `3000` to remote `5984` (couchdb default port) and then just point my browser to `localhost:3000` to connect and administrate my `couchdb`.
 
 
 sshToVnc
