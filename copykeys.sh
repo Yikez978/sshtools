@@ -17,6 +17,7 @@ user=${user:-$duser}
 
 #copy public key to file
 cat ~/.ssh/id_rsa.pub >> authorized_keys
+chmod 644 authorized_keys
 
 #send public key file to remote system
 scp -P $port ~/.ssh/authorized_keys $user@$ip:~/.ssh/
