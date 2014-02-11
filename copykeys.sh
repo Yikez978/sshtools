@@ -24,6 +24,15 @@ scp -P $port ~/.ssh/authorized_keys $user@$ip:~/.ssh/
 
 #exit with same exit code as above command
 exitCode=$?
-echo "exit $exitCode"
-exit $exitCode
-
+if [[ $exitCode -gt 0 ]]; then
+  echo "Something went terribly wrong!!!!"
+  echo "Cleaning up files..."
+  rm authorized_keys
+  echo "Exit Code : $exitCode"
+  exit $exitCode
+else
+  echo "Successfully copied public key to remote machine!!!!"
+  echo "Cleaning up files..."
+  rm authorized_keys
+  exit $?
+fi
