@@ -10,6 +10,7 @@ I have the need to automate some common ssh tasks such as :
     * ssh to vnc
     * vnc to another computer connected to my ssh server
     * bind local machine ports to remote machine ports
+    * mount remote volumes
     * setup SSH Tunnel to remote and proxy all traffic to avoid coffeeshop snoops
     
 
@@ -75,6 +76,21 @@ This is the same method used below when tunneling vnc through ssh. The local por
 
 I use this as a quick way to connect to my `couchdb` instance running on my remote machine. So I can just bind local port `3000` to remote `5984` (couchdb default port) and then just point my browser to `localhost:3000` to connect and administrate my `couchdb`.
 
+
+mountRemoteVol
+==============
+
+Give it `user@remote:remote_dir local_mount_dir` information and it will mount the remote to `remote_dir` in your `local_mount_dir`.
+
+Then you can just go to `~/mount/remote_name` (or whatever location you chose) and use it as if it where files on your local computer. Also in OSX (not tested other OS) you will see a volume mount added to your desktop so you can interact with the remote using the GUI interface...Bonus!!!!
+
+This uses `sshfs` command so if your system doesn't have this then you will have to download it.
+
+Using `brew` you could :
+
+```
+brew install sshfs
+```
 
 sshToVnc
 ========
