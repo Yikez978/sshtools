@@ -19,8 +19,9 @@ user=${user:-$duser}
 cat ~/.ssh/id_rsa.pub >> authorized_keys
 chmod 644 authorized_keys
 
+echo "going to copy to port $port at $user@$ip"
 #send public key file to remote system
-scp -P $port ~/.ssh/authorized_keys $user@$ip:~/.ssh/
+scp -P $port authorized_keys $user@$ip:~/.ssh/
 
 #exit with same exit code as above command
 exitCode=$?
