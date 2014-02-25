@@ -47,6 +47,12 @@ This one uses AUTOSSH, which is great because it will automagically reconnect yo
 source from [HERE](http://www.harding.motd.ca/autossh/). Just follow the instuction to build it from source...because its more
 fun that way!
 
+Or user your favorite package manager :
+
+```
+brew install autossh
+```
+
 ####Config :
 - IP Address (what address to connect to)
 - Port (what port to connect to)
