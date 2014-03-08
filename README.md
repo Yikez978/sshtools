@@ -26,11 +26,11 @@ simple one liner (hey, I'm lazy and forgetful!!!!) that uses the `ssh-keygen` co
 copy keys
 ==========
 
-This will make a temp file with your public key and set correct permissions then copy it to the remote machine.
+This will take your existing public key from `~/.ssh/id_rsa.pub` and append it to the remote server's `~/.ssh/authorized_keys` file. So you can have `n` number of clients keys added to the `authorized_keys` folder if you wish.
 
 _Make sure that `password auth` is `ON` in the remote machine's SSH configuration for this to work_
 
-Once executed you'll be asked for the `IP` and `SSH PORT` of the remote system. If successfull it will prompt you for password on remote system, after authenticating it will copy your key into your `~/.ssh/` directory as you normally would.
+Once executed you'll be asked for the `IP` and `SSH PORT` of the remote system. If successfull it will prompt you for password on remote system, after authenticating it will append your key into the `~/.ssh/authorized_keys` file.
 
 __Note :__
 If you are connecting to a case sensitive OS such as a Linux Distro then you may have to pay close attention to the default USER. If your username is ALL CAPS on your host system but all lowercase on your remote you will have to explicity type the lowercase version or it will fail. I ran into this problem where my OSX username is UPPERCASE, but my Linux username was lowercase and if I accepted the default (which returned the uppercase username) then I would get error on the linux when trying to copy keys because the UPPERCASE username doesn't exist. Once I explicitly typed the lowercase username (instead of accepting the default) I was able to copy the keys without issue.
