@@ -10,6 +10,7 @@ I have the need to automate some common ssh tasks such as :
     * ssh to vnc
     * vnc to another computer connected to my ssh server
     * bind local machine ports to remote machine ports
+    * pivot from SSH server to another Remote machine you have no direct route to
     * mount remote volumes
     * setup SSH Tunnel to remote and proxy all traffic to avoid coffeeshop snoops
     
@@ -84,6 +85,18 @@ This is the same method used below when tunneling vnc through ssh. The local por
 ###usage
 
 I use this as a quick way to connect to my `couchdb` instance running on my remote machine. So I can just bind local port `3000` to remote `5984` (couchdb default port) and then just point my browser to `localhost:3000` to connect and administrate my `couchdb`.
+
+
+sshPivot
+========
+
+This is similar to `bindAddress` except you are binding your `local port` to another machine on the same network as the machine you are SSH'ing into. 
+
+###Example :
+
+You are SSH'ing into a machine that is on a `192.168.1.0` network. The machine you SSH into is at `192.168.1.10`. You want `remote desktop` to a windows machine on your network with IP `192.168.1.22`. So you would like to bind your `localhost:4000` to the windows box's `remote desktop` port at `192.168.1.22:3389`. Since your SSH server `192.168.1.10` can see `192.168.1.22` on the network it can create a tunnel between your `localhost:4000` and `192.168.1.22:3389`.
+
+After this tunnel is setup you can simply open your RDP client app and `remote desktop` to `localhost:4000` and you will magically be connected to `192.168.1.22:3389`. It is called a Pivot because you have no direct route to `192.168.1.22` but since `192.168.1.10` can see it on the network then you can `Pivot` from 1 machine to another through your SSH tunnel.
 
 
 mountRemoteVol
