@@ -16,7 +16,7 @@ read -p "Enter the local port to bind to the remote port from above to : (ex. lo
 
 echo "Attempting to SSH to $ip on port $port with username $user and Pivot to $pivot_ip on port $remote_port through local port $local_port (e.g. $local_port:$pivot_ip:$remote_port)"
 
-ssh -L $local_port:$pivot_ip:$remote_port $user@$ip -p $port &
+ssh -p $port -N -L $local_port:$pivot_ip:$remote_port $user@$ip &
 statusCode=$?
 if [[ $statusCode -gt 0 ]]; then
   echo "Failed...exiting..."
